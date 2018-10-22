@@ -49,7 +49,7 @@ input_file_name=$(basename $input_file .fastq.gz)
 #output file from cutadapt
 output_file="$output_dir/$prefix$input_file_name$output_extension"
 
-cutadapt -m 15 -M 31 --cores=6 "$input_file" > "$output_file" 2> "$output_dir/$report_prefix$input_file_name$report_extension"
+cutadapt -l 30 -m 15 --cores=6 "$input_file" > "$output_file" 2> "$output_dir/$report_prefix$input_file_name$report_extension"
 
 done
 
