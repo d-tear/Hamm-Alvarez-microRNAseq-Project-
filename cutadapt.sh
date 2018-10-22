@@ -13,7 +13,7 @@
 # Reverse DNA complewment (U's replaced with T's): 5' GATCGTCGGACTGTAGAACTCTGAAC 3'
 
 input_dir="/media/david/Main/David/microRNASeq/Sarahs_Project/Raw_FastQ_Files"
-output_dir="/media/david/Main/David/microRNASeq/Sarahs_Project/Raw_FastQ_Files/trimmed_R2"
+output_dir="/media/david/Main/David/microRNASeq/Sarahs_Project/Raw_FastQ_Files/trimmed_ByLength_R2"
 
 #what file type should cutadapt output
 output_extension=".fastq"
@@ -25,7 +25,7 @@ adapter_seq="GATCGTCGGACTGTAG"
 cd $input_dir
 
 #we will add this prefix to our files output from cutadapt
-prefix="trimmed_"
+prefix="trimmed_ByLength_"
 
 # we will add this prefix to our report files generated from cutadapt
 report_prefix="CutadaptReport_"
@@ -49,7 +49,7 @@ input_file_name=$(basename $input_file .fastq.gz)
 #output file from cutadapt
 output_file="$output_dir/$prefix$input_file_name$output_extension"
 
-cutadapt -a GATCGTCGGACTGTAG --cores=6 "$input_file" > "$output_file" 2> "$output_dir/$report_prefix$input_file_name$report_extension"
+cutadapt -m 15 -M 31 --cores=6 "$input_file" > "$output_file" 2> "$output_dir/$report_prefix$input_file_name$report_extension"
 
 done
 
