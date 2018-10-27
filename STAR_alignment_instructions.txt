@@ -1,0 +1,21 @@
+###miRNA-seq read alignment using STAR aligner###
+
+#First I generated the annotated mouse genome index. The relavant FATSA and GTF files are below. They were taken from GENCODE 
+Release M19 (GRCm38.p6):
+
+1) FASTA
+
+Genome sequence, primary assembly (GRCm38) 	PRI 	
+
+    Nucleotide sequence of the GRCm38 primary genome assembly (chromosomes and scaffolds)
+    The sequence region names are the same as in the GTF/GFF3 files
+
+2) Annotation/GTF
+
+Comprehensive gene annotation 	PRI 	
+
+    It contains the comprehensive gene annotation on the primary assembly (chromosomes and scaffolds) sequence regions
+    This is a superset of the main annotation file
+
+	
+
