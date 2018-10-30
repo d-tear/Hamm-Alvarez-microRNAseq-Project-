@@ -3,10 +3,10 @@
 ######This script aligns fastq reads to the mouse genome I generated with STAR#######
 
 #cd into directory where the fastq reads are located
-cd /media/david/Main/David/microRNASeq/Sarahs_Project/Raw_FastQ_Files/trimmed_ByLength_R2
+cd /media/david/Main/David/microRNASeq/Sarahs_Project/Raw_FastQ_Files/trimmed_ByLength_AndAdapter_R2
 
 #output_dir is where the alignment results for each file will be located
-output_dir=/media/david/Main/David/microRNASeq/Sarahs_Project/Alignment_Results/Trimmed_ByLength_R2
+output_dir=/media/david/Main/David/microRNASeq/Sarahs_Project/Alignment_Results/Trimmed_ByLength_AndAdapter_R2
 
 
 #paramters for STAR alignment
@@ -19,9 +19,6 @@ params='  --runThreadN 6
 	 	   --outSAMtype BAM SortedByCoordinate 
 	 	   --quantMode TranscriptomeSAM GeneCounts
 		   --outReadsUnmapped Fastx
-		   --outWigType wiggle
-	           --outWigStarnd Unstranded
-	           --outWigNorm RPM 
 	  	   --outFilterMismatchNoverLmax 0.05 --outFilterMatchNmin 16 --outFilterScoreMinOverLread 0  --outFilterMatchNminOverLread 0 --alignIntronMax 1
 	          '
 #Supposedly we can use --genomeLoad LoadAndExit to load the genome index into memory so we can use a for loop to align each fastq file without relaoding the genome each for each fastq file, but I cant get this to work
